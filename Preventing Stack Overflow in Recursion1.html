@@ -1,0 +1,37 @@
+<script>
+  function factorial(n) {
+  // Check if the input is not a number or is NaN
+  if (typeof n !== "number" || isNaN(n)) {
+    console.log("Invalid input");
+    return;
+  }
+
+  // Check for negative numbers
+  if (n < 0) {
+    console.log("Invalid input");
+    return;
+  }
+
+  // Base case: factorial(0) = 1
+  if (n === 0) {
+    return 1;
+  }
+
+  // Safety check to avoid stack overflow: stop at very large inputs
+  if (n > 170) {
+    console.log("Input too large to compute safely.");
+    return;
+  }
+
+  // Recursive case
+  return n * factorial(n - 1);
+}
+
+// Test cases
+console.log(factorial(5));     // 120
+console.log(factorial(0));     // 1
+console.log(factorial(-3));    // "Invalid input"
+console.log(factorial("abc")); // "Invalid input"
+console.log(factorial(171));   // "Input too large to compute safely."
+</script>
+
